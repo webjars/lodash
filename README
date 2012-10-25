@@ -1,16 +1,5 @@
 Lo-Dash WebJar
 
-Current GroupId:
-org.webjars
+More info: http://webjars.org
 
-Current ArtifactId:
-lodash
-
-Current Version:
-0.7.0
-
-Current Layout:
-META-INF/resources/webjars/lodash/0.7.0/lodash.min.js
-META-INF/resources/webjars/jquery/0.7.0/lodash.js
-
-Previous Versions:
+Upstream: http://lodash.com/
