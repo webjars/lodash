@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>lodash</artifactId>
-    <version>0.9.1-SNAPSHOT</version>
+    <version>1.2.0</version>
     <name>Lo-Dash</name>
     <description>WebJar for Lo-Dash</description>
     <url>http://webjars.org</url>
@@ -37,12 +37,17 @@
             <name>James Ward</name>
             <email>james@jamesward.org</email>
         </developer>
+        <developer>
+            <id>tomekpiotrowski</id>
+            <name>Tomek Piotrowski</name>
+            <email>tomek.piotrowski@atteo.com</email>
+        </developer>
     </developers>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>0.9.0</upstreamVersion>
-        <downloadUrl>https://raw.github.com/bestiejs/lodash/v${upstreamVersion}</downloadUrl>
+        <upstreamVersion>1.2.0</upstreamVersion>
+        <downloadUrl>https://raw.github.com/bestiejs/lodash/v${upstreamVersion}/dist</downloadUrl>
         <destinationDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destinationDir>
     </properties>
 
