@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>lodash</artifactId>
-    <version>1.2.1-SNAPSHOT</version>
+    <version>1.3.1-SNAPSHOT</version>
     <name>Lo-Dash</name>
     <description>WebJar for Lo-Dash</description>
     <url>http://webjars.org</url>
@@ -46,7 +46,7 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>1.2.0</upstreamVersion>
+        <upstreamVersion>1.3.1</upstreamVersion>
         <downloadUrl>https://raw.github.com/bestiejs/lodash/v${upstreamVersion}/dist</downloadUrl>
         <destinationDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destinationDir>
     </properties>
