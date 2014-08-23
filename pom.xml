@@ -20,7 +20,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <upstreamVersion>2.4.1</upstreamVersion>
         <downloadUrl>https://raw.github.com/bestiejs/lodash/${upstreamVersion}/dist</downloadUrl>
-        <destinationDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${upstreamVersion}</destinationDir>
+        <destinationDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${version}</destinationDir>
         <requirejs>
             {
                 "paths": {
