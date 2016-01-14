@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>lodash</artifactId>
-    <version>4.0.0-SNAPSHOT</version>
+    <version>4.0.0</version>
     <name>Lo-Dash</name>
     <description>WebJar for Lo-Dash</description>
     <url>http://webjars.org</url>
@@ -42,7 +42,7 @@
         <url>http://github.com/webjars/lodash</url>
         <connection>scm:git:https://github.com/webjars/lodash.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/lodash.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>lodash-4.0.0</tag>
     </scm>
 
     <developers>
@@ -70,13 +70,13 @@
                         <goals><goal>run</goal></goals>
                         <configuration>
                             <target>
-                                <echo message="download archive"/>
-                                <get src="${downloadUrl}" dest="${project.build.directory}/${project.artifactId}.zip"/>
-                                <echo message="unzip archive"/>
-                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}"/>
-                                <echo message="moving resources"/>
+                                <echo message="download archive" />
+                                <get src="${downloadUrl}" dest="${project.build.directory}/${project.artifactId}.zip" />
+                                <echo message="unzip archive" />
+                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
+                                <echo message="moving resources" />
                                 <move todir="${destinationDir}">
-                                    <fileset dir="${project.build.directory}/${project.artifactId}-${upstreamVersion}/dist"/>
+                                    <fileset dir="${project.build.directory}/${project.artifactId}-${upstreamVersion}/dist" />
                                 </move>
                             </target>
                         </configuration>
