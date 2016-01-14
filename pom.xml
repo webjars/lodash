@@ -11,15 +11,15 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>lodash</artifactId>
-    <version>3.10.2-SNAPSHOT</version>
+    <version>4.0.0-SNAPSHOT</version>
     <name>Lo-Dash</name>
     <description>WebJar for Lo-Dash</description>
     <url>http://webjars.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>3.10.1</upstreamVersion>
-        <downloadUrl>https://raw.githubusercontent.com/lodash/lodash/${upstreamVersion}</downloadUrl>
+        <upstreamVersion>4.0.0</upstreamVersion>
+        <downloadUrl>https://github.com/lodash/lodash/archive/${upstreamVersion}.zip</downloadUrl>
         <destinationDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${version}</destinationDir>
         <requirejs>
             {
@@ -61,42 +61,29 @@
     <build>
         <plugins>
             <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>wagon-maven-plugin</artifactId>
-                <version>1.0-beta-4</version>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-antrun-plugin</artifactId>
+                <version>1.8</version>
                 <executions>
                     <execution>
-                        <id>download-js</id>
                         <phase>process-resources</phase>
-                        <goals><goal>download-single</goal></goals>
+                        <goals><goal>run</goal></goals>
                         <configuration>
-                            <url>${downloadUrl}</url>
-                            <fromFile>lodash.js</fromFile>
-                            <toDir>${destinationDir}</toDir>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>download-min-js</id>
-                        <phase>process-resources</phase>
-                        <goals><goal>download-single</goal></goals>
-                        <configuration>
-                            <url>${downloadUrl}</url>
-                            <fromFile>lodash.min.js</fromFile>
-                            <toDir>${destinationDir}</toDir>
-                        </configuration>
-                    </execution>
-                    <execution>
-                        <id>download-src-js</id>
-                        <phase>process-resources</phase>
-                        <goals><goal>download-single</goal></goals>
-                        <configuration>
-                            <url>${downloadUrl}</url>
-                            <fromFile>lodash.src.js</fromFile>
-                            <toDir>${destinationDir}</toDir>
+                            <target>
+                                <echo message="download archive"/>
+                                <get src="${downloadUrl}" dest="${project.build.directory}/${project.artifactId}.zip"/>
+                                <echo message="unzip archive"/>
+                                <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}"/>
+                                <echo message="moving resources"/>
+                                <move todir="${destinationDir}">
+                                    <fileset dir="${project.build.directory}/${project.artifactId}-${upstreamVersion}/dist"/>
+                                </move>
+                            </target>
                         </configuration>
                     </execution>
                 </executions>
             </plugin>
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-release-plugin</artifactId>
