@@ -11,16 +11,15 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>lodash</artifactId>
-    <version>4.0.1-SNAPSHOT</version>
+    <version>4.15.0-SNAPSHOT</version>
     <name>Lo-Dash</name>
     <description>WebJar for Lo-Dash</description>
     <url>http://webjars.org</url>
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <upstreamVersion>4.0.0</upstreamVersion>
-        <downloadUrl>https://github.com/lodash/lodash/archive/${upstreamVersion}.zip</downloadUrl>
-        <destinationDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${version}</destinationDir>
+        <downloadUrl>https://github.com/lodash/lodash/archive/${version.unsnapshot}.zip</downloadUrl>
+        <destinationDir>${project.build.outputDirectory}/META-INF/resources/webjars/${project.artifactId}/${project.version}</destinationDir>
         <requirejs>
             {
                 "paths": {
@@ -61,6 +60,20 @@
     <build>
         <plugins>
             <plugin>
+                <groupId>com.jamesward</groupId>
+                <artifactId>unsnapshot-maven-plugin</artifactId>
+                <version>0.2</version>
+                <executions>
+                    <execution>
+                        <phase>initialize</phase>
+                        <goals>
+                            <goal>unsnapshot</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-antrun-plugin</artifactId>
                 <version>1.8</version>
@@ -76,7 +89,7 @@
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
                                 <echo message="moving resources" />
                                 <move todir="${destinationDir}">
-                                    <fileset dir="${project.build.directory}/${project.artifactId}-${upstreamVersion}/dist" />
+                                    <fileset dir="${project.build.directory}/${project.artifactId}-${version.unsnapshot}/dist" />
                                 </move>
                             </target>
                         </configuration>
