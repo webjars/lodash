@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>lodash</artifactId>
-    <version>4.17.5-SNAPSHOT</version>
+    <version>3.10.0-SNAPSHOT</version>
     <name>Lo-Dash</name>
     <description>WebJar for Lo-Dash</description>
     <url>http://webjars.org</url>
@@ -89,7 +89,7 @@
                                 <unzip src="${project.build.directory}/${project.artifactId}.zip" dest="${project.build.directory}" />
                                 <echo message="moving resources" />
                                 <move todir="${destinationDir}">
-                                    <fileset dir="${project.build.directory}/${project.artifactId}-${version.unsnapshot}/dist" />
+                                    <fileset dir="${project.build.directory}/${project.artifactId}-${version.unsnapshot}" includes="*.js"/>
                                 </move>
                             </target>
                         </configuration>
