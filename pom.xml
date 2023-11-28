@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.webjars</groupId>
     <artifactId>lodash</artifactId>
-    <version>4.17.21-SNAPSHOT</version>
+    <version>4.17.21</version>
     <name>Lo-Dash</name>
     <description>WebJar for Lo-Dash</description>
     <url>http://webjars.org</url>
@@ -41,7 +41,7 @@
         <url>http://github.com/webjars/lodash</url>
         <connection>scm:git:https://github.com/webjars/lodash.git</connection>
         <developerConnection>scm:git:https://github.com/webjars/lodash.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>lodash-4.17.21</tag>
     </scm>
 
     <developers>
